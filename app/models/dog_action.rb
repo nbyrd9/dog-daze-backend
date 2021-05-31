@@ -1,0 +1,2 @@
+class DogAction < ApplicationRecord
+end

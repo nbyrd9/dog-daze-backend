@@ -3,7 +3,7 @@ class DogsController < ApplicationController
     
     def index
         dogs = Dog.all
-        render json: dogs 
+        render json: dogs, except: [:created_at, :updated_at], include: [:dog_actions]
     end
 
     def show

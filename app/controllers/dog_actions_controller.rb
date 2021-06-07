@@ -2,7 +2,7 @@ class DogActionsController < ApplicationController
      before_action :set_dog
     
     def index
-        dog_actions = DogAction.all
+        dog_actions = dog_actions.all
         render json: dog_actions
     end
 
@@ -12,11 +12,13 @@ class DogActionsController < ApplicationController
     end
 
     def create
-        dog_action = DogAction.new
+        dog_action = dog.dog_actions.new
+        
         if dog_action.save
             render json: dog_action
         else
             render json: dog_action.errors
+        end
     end
 
     def destroy

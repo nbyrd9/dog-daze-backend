@@ -1,7 +1,14 @@
 class DogsController < ApplicationController
+    before_action :set_dog, only: [:destroy]
+    
     def index
         dogs = Dog.all
-        render json: dogs except: [:created_at, :updated_at], include: [:dog_actions]
+        render json: dogs 
+    end
+
+    def show
+        dog = Dog.find(params[:id])
+        render json: dog
     end
 
     def create
@@ -20,6 +27,10 @@ class DogsController < ApplicationController
     end
 
     private
+
+    def set_dog
+        dog = Dog.find(params[:id])
+      end
 
     def dog_params
         params.require(:dog).permit(:name, :age, :breed)

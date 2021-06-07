@@ -1,24 +1,38 @@
 class DogActionsController < ApplicationController
+     before_action :set_dog
+    
     def index
-        dog_actions = Dog_action.all
-        render_json: dog_actions, except: [:created_at, :updated_at]
+        dog_actions = DogAction.all
+        render json: dog_actions
+    end
+
+    def show
+       dog_action = DogAction.find(params[:id])
+       render json: dog_action
     end
 
     def create
-        dog_action = Dog_action.new
+        dog_action = DogAction.new
         if dog_action.save
-            render json: dog_action, except: [:created_at, :updated_at]
+            render json: dog_action
+        else
+            render json: dog_action.errors
     end
 
     def destroy
-        dog_action = Dog_action.find_by(params[:id])
+        dog_action = DogAction.find_by(params[:id])
         dog_action.destroy
     end
 
     private
 
+    def set_dog
+        dog = Dog.find(params[:dog_id])
+    end
+
     def dog_action_params
         params.require(:dog_action).permit(:name, :time, :description, :mood, :dog_id)
     end
 
+end
 end

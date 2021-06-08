@@ -8,7 +8,7 @@ class DogsController < ApplicationController
 
     def show
         dog = Dog.find(params[:id])
-        render json: dog
+        render json: dog, except: [:created_at, :updated_at], include: [:dog_actions]
     end
 
     def create
@@ -29,10 +29,10 @@ class DogsController < ApplicationController
     private
 
     def set_dog
-        dog = Dog.find(params[:id])
+        @dog = Dog.find(params[:id])
       end
 
     def dog_params
-        params.require(:dog).permit(:name, :age, :breed)
+        params.require(:dog).permit(:name, :age, :breed, :id)
     end
 end

@@ -1,24 +1,19 @@
-# README
+# DogDaze
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome! Please note this is the backend of the DogDaze application. 
 
-Things you may want to cover:
+## Install Instructions
 
-* Ruby version
+After cloning the repo, install the dependencies by executing the below command in your terminal:
 
-* System dependencies
+```bundle install```
 
-* Configuration
+Launch the system using the below command in your terminal and navigating to your specified local host URL:
 
-* Database creation
+```rails s -p 3001```
 
-* Database initialization
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/nbyrd9/dog-daze-backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/PurpleBooth/a-good-readme-template/blob/main/CONTRIBUTING.md). 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+This project is licensed under the [CC0 1.0 Universal Creative Commons License](https://github.com/PurpleBooth/a-good-readme-template/blob/main/LICENSE.md) - see the [LICENSE.md](https://github.com/PurpleBooth/a-good-readme-template/blob/main/LICENSE.md) file for details.
